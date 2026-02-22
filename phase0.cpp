@@ -11,7 +11,7 @@ public:
     }
     Stack(const Stack &src) : m_size{src.m_size}, stack{new int[src.m_size]}, m_top{src.m_top}
     {
-        memcpy(stack, src.stack, src.m_size);
+        memcpy(stack, src.stack, src.m_size * sizeof(int));
     }
     Stack(Stack &&other) : m_size{other.m_size}, stack{other.stack}, m_top{other.m_top}
     {
@@ -38,7 +38,7 @@ public:
     }
     bool is_full() const
     {
-        return m_top == m_size - 1;
+        return m_top == m_size;
     }
     bool is_empty() const
     {
@@ -78,5 +78,14 @@ int main()
     Stack test{10};
 
     std::cout << test.capacity() << '\n';
+    int val{0};
+    while (!test.is_full())
+    {
+        test.push(val++);
+    }
+    test.preview();
+    Stack test2{test};
+    std::cout << "The copy's capacity: " << test2.capacity() << '\n';
+    test2.preview();
     return 0;
 }
