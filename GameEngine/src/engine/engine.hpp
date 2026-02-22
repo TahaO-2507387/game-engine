@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 
+// to-do make it more modular, take the functions from .hpp to .cpp file and improve the run() function with updaters and renderers.
+
 class Engine
 {
 public:
