@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 
 class Stack
 {
@@ -86,6 +87,10 @@ int main()
     test.preview();
     Stack test2{test};
     std::cout << "The copy's capacity: " << test2.capacity() << '\n';
+    test2.preview();
+    Stack test3 = test2;
+    std::cout << "The moved location's capacity: " << test3.capacity() << '\n';
+    std::cout << "The original's capacity: " << test2.capacity() << '\n';
     test2.preview();
     return 0;
 }
