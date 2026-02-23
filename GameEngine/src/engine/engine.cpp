@@ -27,3 +27,29 @@ void Engine::run()
         window.display();
     }
 }
+
+void Engine::process_input(sf::RenderWindow &window)
+{
+    using namespace sf;
+    Event event;
+
+    while (window.pollEvent(event))
+    {
+        if (event.type == Event::Closed)
+        {
+            window.close();
+        }
+        else if (event.type == Event::Resized)
+        {
+            return;
+        }
+        else if (event.type == Event::KeyPressed)
+        {
+            return;
+        }
+        else if (event.type == Event::KeyReleased)
+        {
+            return;
+        }
+    }
+}

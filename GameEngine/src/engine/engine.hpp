@@ -9,6 +9,9 @@ class Engine
 public:
     Engine(int width, int height, std::string title, int fps, int fs);
     void run();
+    void process_input(sf::RenderWindow &window);
+    void update();
+    void render();
 
 private:
     int m_width{};
