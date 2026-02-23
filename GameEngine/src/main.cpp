@@ -2,7 +2,7 @@
 
 int main()
 {
-    Engine test{800, 600, "testing", 60, 1};
+    Engine test{2560, 1440, "testing", 60, 0};
 
     test.run();
 
