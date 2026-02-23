@@ -4,6 +4,7 @@ Engine::Engine(int width, int height, std::string title, int fps, int fs) : m_wi
 
 void Engine::run()
 {
+    sf::Clock timer;
     sf::RenderWindow window;
     if (m_fs)
     {
@@ -15,16 +16,13 @@ void Engine::run()
     }
     while (window.isOpen())
     {
+        sf::Time currentTime = timer.getElapsedTime();
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-            {
-                window.close();
-            }
-        }
-        window.clear(sf::Color::Black);
-        window.display();
+        process_input(window);
+        update(currentTime);
+        render(window);
+
+        timer.restart();
     }
 }
 
@@ -52,4 +50,16 @@ void Engine::process_input(sf::RenderWindow &window)
             return;
         }
     }
+}
+
+void Engine::update(sf::Time dt)
+{
+    return;
+}
+
+void Engine::render(sf::RenderWindow &window)
+{
+    window.clear(sf::Color::Black);
+
+    window.display();
 }

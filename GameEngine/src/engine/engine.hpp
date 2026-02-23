@@ -10,8 +10,8 @@ public:
     Engine(int width, int height, std::string title, int fps, int fs);
     void run();
     void process_input(sf::RenderWindow &window);
-    void update();
-    void render();
+    void update(sf::Time dt);
+    void render(sf::RenderWindow &window);
 
 private:
     int m_width{};
